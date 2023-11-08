@@ -158,27 +158,48 @@ Examples:
 function extractFullName(arr){
     return arr.map(function(obj){
         return `${obj['first']} ${obj['last']}`;
-    })
+    });
 }
 
 /*
-Write a function called filterByValue which accepts an array of objects and a key and returns a new array with all the objects that contain that key.
+Write a function called filterByValue which accepts an array of objects 
+and a key and returns a new array with all the objects that contain that 
+key.
 
 Examples:
-    filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner') // [{first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Colt', last:"Steele", isCatOwner: true}]
+    filterByValue([{first: 'Elie', last:"Schoppik"}, 
+    {first: 'Tim', last:"Garcia", isCatOwner: true}, 
+    {first: 'Matt', last:"Lane"}, 
+    {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner') 
+    // [{first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Colt', last:"Steele", isCatOwner: true}]
 */
 
-function filterByValue(arr, key) {}
+function filterByValue(arr, key) {
+    return arr.filter(function(obj){
+        return obj[key];
+    });
+}
 
 /*
-Write a function called find which accepts an array and a value and returns the first element in the array that has the same value as the second parameter or undefined if the value is not found in the array.
+Write a function called find which accepts an array and a value and 
+returns the first element in the array that has the same value as the 
+second parameter or undefined if the value is not found in the array.
 
 Examples:
     find([1,2,3,4,5], 3) // 3
     find([1,2,3,4,5], 10) // undefined
 */
 
-function find(arr, searchValue) {}
+function find(arr, searchValue) {
+    const results = arr.filter(function(num){
+        if (num === searchValue) {
+            return num;
+        } else {
+            return undefined;
+        }
+    });
+    return results[0];
+}
 
 /*
 Write a function called findInObj which accepts an array of objects, a key, and some value to search for and returns the first found value in the array.
