@@ -202,16 +202,29 @@ function find(arr, searchValue) {
 }
 
 /*
-Write a function called findInObj which accepts an array of objects, a key, and some value to search for and returns the first found value in the array.
+Write a function called findInObj which accepts an array of objects, 
+a key, and some value to search for and returns the first found value 
+in the array.
 
 Examples:
-    findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true) // {first: 'Tim', last:"Garcia", isCatOwner: true}
+    findInObj([{first: 'Elie', last:"Schoppik"}, 
+    {first: 'Tim', last:"Garcia", isCatOwner: true}, 
+    {first: 'Matt', last:"Lane"}, 
+    {first: 'Colt', last:"Steele", isCatOwner: true}], 
+    'isCatOwner',true) // {first: 'Tim', last:"Garcia", isCatOwner: true}
 */
 
-function findInObj(arr, key, searchValue) {}
+function findInObj(arr, key, searchValue) {
+    const results = arr.filter(function(obj) {
+        if (obj[key] === searchValue) return obj;
+    });
+    return results[0];
+}
 
 /*
-Write a function called removeVowels which accepts a string and returns a new string with all of the vowels (both uppercased and lowercased) removed. Every character in the new string should be lowercased.
+Write a function called removeVowels which accepts a string and returns 
+a new string with all of the vowels (both uppercased and lowercased) 
+removed. Every character in the new string should be lowercased.
 
 Examples:
     removeVowels('Elie') // ('l')
@@ -219,7 +232,15 @@ Examples:
     removeVowels('ZZZZZZ') // ('zzzzzz')
 */
 
-function removeVowels(str) {}
+function removeVowels(str) {
+    let results = "";
+    for (let letter of str) {
+        if (!("aeiou".includes(letter.toLowerCase()))) {
+            results += letter.toLowerCase();
+        }
+    }
+    return results;
+}
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
