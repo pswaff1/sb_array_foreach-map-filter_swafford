@@ -64,7 +64,10 @@ Examples:
 
 */
 function addKeyAndValue(arr,key,value){
-    
+    arr.forEach(function(obj) {
+        obj[key] = value;
+    });
+    return arr;
 }
 
 /*
@@ -78,7 +81,20 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 function vowelCount(str){
-   
+    let vowels = {};
+    const words = str.split(" ");
+    words.forEach(function(word){
+        for (let letter of word) {
+            if ("aeiou".includes(letter)) {
+                if (vowels[letter]) {
+                    vowels[letter] += 1;
+                } else {
+                    vowels[letter] = 1;
+                }
+            }
+        }
+    });
+    return vowels;
 }
 
 /*
